@@ -42,7 +42,7 @@ class APIController extends Controller {
 	protected function respond404($data = [], $headers = [])
 	{
 		return $this->setStatusCode(self::HTTP_NOT_FOUND)
-			->respond($data, $headers)
+			->respond($data, $headers);
 	}
 
 	/**
@@ -54,7 +54,7 @@ class APIController extends Controller {
 	protected function respondWithErrors($data = [], $headers = [])
 	{
 		return $this->setStatusCode(self::HTTP_BAD_REQUEST)
-			->respond($data), $headers;
+			->respond($data, $headers);
 	}
 
 	/**
