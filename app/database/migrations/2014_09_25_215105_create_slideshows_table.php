@@ -12,7 +12,15 @@ class CreateSlideshowsTable extends Migration {
 	 */
 	public function up()
 	{
-		//
+		Schema::create('slideshows', function(Blueprint $table)
+		{
+			$table->increments('id');
+			$table->integer('user_id');
+			$table->string('photo');
+			$table->bool('is_pinned');
+			$table->softDeletes();
+			$table->timestamps();
+		});
 	}
 
 	/**
@@ -22,7 +30,7 @@ class CreateSlideshowsTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::dropIfExists('slideshows');
 	}
 
 }

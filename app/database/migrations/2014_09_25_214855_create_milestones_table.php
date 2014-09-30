@@ -12,7 +12,16 @@ class CreateMilestonesTable extends Migration {
 	 */
 	public function up()
 	{
-		//
+		Schema::create('milestones', function(Blueprint $table)
+		{
+			$table->increments('id');
+			$table->integer('user_id');
+			$table->integer('era_id');
+			$table->string('title');
+			$table->text('content');
+			$table->softDeletes();
+			$table->timestamps();
+		});
 	}
 
 	/**
@@ -22,7 +31,7 @@ class CreateMilestonesTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::dropIfExists('milestones');
 	}
 
 }

@@ -12,7 +12,13 @@ class CreateMilestoneErasTable extends Migration {
 	 */
 	public function up()
 	{
-		//
+		Schema::create('milestone_eras', function(Blueprint $table)
+		{
+			$table->increments('id');
+			$table->string('name');
+			$table->timestamp('date');
+			$table->timestamps();
+		});
 	}
 
 	/**
@@ -22,7 +28,7 @@ class CreateMilestoneErasTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::dropIfExists('milestone_eras');
 	}
 
 }
