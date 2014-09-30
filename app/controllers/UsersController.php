@@ -43,7 +43,9 @@ class UsersController extends \APIController {
 	 */
 	public function show($id)
 	{
-		//
+		$user = User::findOrFail($id);
+
+		return $this->respondOK($user);
 	}
 
 

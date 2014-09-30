@@ -9,7 +9,8 @@ class EventsController extends \APIController {
 	 */
 	public function index()
 	{
-		//
+		$events = Event::paginate(10);
+		return $this->respondOK($events);
 	}
 
 
@@ -31,7 +32,11 @@ class EventsController extends \APIController {
 	 */
 	public function store()
 	{
-		//
+		$event = new Event;
+		$event->fill();
+		$event->save();
+
+		return $this->respondOK();
 	}
 
 
@@ -43,7 +48,9 @@ class EventsController extends \APIController {
 	 */
 	public function show($id)
 	{
-		//
+		$event = Event::findOrFail($id);
+
+		return $this->respondOK($event);
 	}
 
 
@@ -67,7 +74,10 @@ class EventsController extends \APIController {
 	 */
 	public function update($id)
 	{
-		//
+		$event = Event::findOrFail($id);
+		$event->save();
+
+		return $this->respondOK();
 	}
 
 
@@ -79,7 +89,10 @@ class EventsController extends \APIController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$event = Event::findOrFail($id);
+		$event->delete();
+
+		return $this->respondOK();
 	}
 
 

@@ -1,6 +1,6 @@
 <?php
 
-class SlideshowsController extends \BaseController {
+class SlidesController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,12 +9,13 @@ class SlideshowsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$slides = Slide::paginate(10);
+		return $this->respondOK($slides);
 	}
 
 
 	/**
-	 * Show the form for creating a new resource.
+	 *  the form for creating a new resource.
 	 *
 	 * @return Response
 	 */
@@ -31,7 +32,11 @@ class SlideshowsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$slide = new Slide;
+		$slide->fill();
+		$slide->save();
+
+		return $this->respondOK();
 	}
 
 
@@ -43,12 +48,14 @@ class SlideshowsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$slide = Slide::findOrFail($id);
+
+		return $this->respondOK($slide);
 	}
 
 
 	/**
-	 * Show the form for editing the specified resource.
+	 *  the form for editing the specified resource.
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -67,7 +74,10 @@ class SlideshowsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$slide = Slide::findOrFail($id);
+		$slide->save();
+
+		return $this->respondOK();
 	}
 
 
@@ -79,8 +89,10 @@ class SlideshowsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
-	}
+		$slide = Slide::findOrFail($id);
+		$slide->delete();
 
+		return $this->respondOK();
+	}
 
 }

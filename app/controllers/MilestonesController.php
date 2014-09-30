@@ -9,7 +9,8 @@ class MilestonesController extends \APIController {
 	 */
 	public function index()
 	{
-		//
+		$milestones = Milestone::paginate(10);
+		return $this->respondOK($milestones);
 	}
 
 
@@ -31,7 +32,11 @@ class MilestonesController extends \APIController {
 	 */
 	public function store()
 	{
-		//
+		$milestone = new Milestone;
+		$milestone->fill();
+		$milestone->save();
+
+		return $this->respondOK();
 	}
 
 
@@ -43,7 +48,9 @@ class MilestonesController extends \APIController {
 	 */
 	public function show($id)
 	{
-		//
+		$milestone = Milestone::findOrFail($id);
+
+		return $this->respondOK($milestone);
 	}
 
 
@@ -67,7 +74,10 @@ class MilestonesController extends \APIController {
 	 */
 	public function update($id)
 	{
-		//
+		$milestone = Milestone::findOrFail($id);
+		$milestone->save();
+
+		return $this->respondOK();
 	}
 
 
@@ -79,8 +89,10 @@ class MilestonesController extends \APIController {
 	 */
 	public function destroy($id)
 	{
-		//
-	}
+		$milestone = Milestone::findOrFail($id);
+		$milestone->delete();
 
+		return $this->respondOK();
+	}
 
 }

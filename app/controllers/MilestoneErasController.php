@@ -9,7 +9,8 @@ class MilestoneErasController extends \APIController {
 	 */
 	public function index()
 	{
-		//
+		$era = MilestoneEra::paginate(10);
+		return $this->respondOK($era);
 	}
 
 
@@ -31,7 +32,11 @@ class MilestoneErasController extends \APIController {
 	 */
 	public function store()
 	{
-		//
+		$era = new MilestoneEra;
+		$era->fill();
+		$era->save();
+
+		return $this->respondOK();
 	}
 
 
@@ -43,7 +48,9 @@ class MilestoneErasController extends \APIController {
 	 */
 	public function show($id)
 	{
-		//
+		$era = MilestoneEra::findOrFail($id);
+
+		return $this->respondOK($era);
 	}
 
 
@@ -67,7 +74,10 @@ class MilestoneErasController extends \APIController {
 	 */
 	public function update($id)
 	{
-		//
+		$era = MilestoneEra::findOrFail($id);
+		$era->save();
+
+		return $this->respondOK();
 	}
 
 
@@ -79,7 +89,10 @@ class MilestoneErasController extends \APIController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$era = MilestoneEra::findOrFail($id);
+		$era->delete();
+
+		return $this->respondOK();
 	}
 
 

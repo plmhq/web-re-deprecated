@@ -9,7 +9,8 @@ class AlbumsController extends \APIController {
 	 */
 	public function index()
 	{
-		//
+		$albums = Album::paginate(10);
+		return $this->respondOK($era);
 	}
 
 
@@ -31,7 +32,11 @@ class AlbumsController extends \APIController {
 	 */
 	public function store()
 	{
-		//
+		$album = new Album;
+		$album->fill();
+		$album->save();
+
+		return $this->respondOK();
 	}
 
 
@@ -43,7 +48,9 @@ class AlbumsController extends \APIController {
 	 */
 	public function show($id)
 	{
-		//
+		$album = Album::findOrFail($id);
+
+		return $this->respondOK($album);
 	}
 
 
@@ -67,7 +74,10 @@ class AlbumsController extends \APIController {
 	 */
 	public function update($id)
 	{
-		//
+		$album = Album::findOrFail($id);
+		$album->save();
+
+		return $this->respondOK();
 	}
 
 
@@ -79,8 +89,10 @@ class AlbumsController extends \APIController {
 	 */
 	public function destroy($id)
 	{
-		//
-	}
+		$album = Album::findOrFail($id);
+		$album->delete();
 
+		return $this->respondOK();
+	}
 
 }

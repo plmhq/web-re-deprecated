@@ -24,30 +24,43 @@ class APIController extends Controller {
 	/**
 	 * Returns a successful response
 	 *  
-	 * @param  [type] $data
-	 * @return [type]
+	 * @param  array|object 	$data
+	 * @return Response
 	 */
-	protected function respondOK($data)
+	protected function respondOK($data = [], $headers = [])
 	{
 		return $this->setStatusCode(self::HTTP_OK)
-			->respond($data);
+			->respond($data, $headers);
+	}
+
+	/**
+	 * Respond a 404 error
+	 * 
+	 * @param  array|object 	 $data
+	 * @return 	Response
+	 */
+	protected function respond404($data = [], $headers = [])
+	{
+		return $this->setStatusCode(self::HTTP_NOT_FOUND)
+			->respond($data, $headers)
 	}
 
 	/**
 	 * Returns a successful response
 	 *  
-	 * @param  [type] $data
-	 * @return [type]
+	 * @param  array|object 	data
+	 * @return Response
 	 */
-	protected function respondWithErrors($data)
+	protected function respondWithErrors($data = [], $headers = [])
 	{
 		return $this->setStatusCode(self::HTTP_BAD_REQUEST)
-			->respond($data);
+			->respond($data), $headers;
 	}
 
 	/**
 	 * Sets status code
-	 * 
+	 * @param   int 	$statusCode
+	 * @return 	$this
 	 */
 	private function setStatusCode($statusCode)
 	{
@@ -62,7 +75,7 @@ class APIController extends Controller {
 	 * @param  array|object $data
 	 * @return Response
 	 */
-	protected function respond($data, $headers = [])
+	protected function respond($data = [], $headers = [])
 	{
 		return Response::json(
 			$data,

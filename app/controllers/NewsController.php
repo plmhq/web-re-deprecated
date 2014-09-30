@@ -9,7 +9,8 @@ class NewsController extends \APIController {
 	 */
 	public function index()
 	{
-		//
+		$news = News::paginate(10);
+		return $this->respondOK($news);
 	}
 
 
@@ -31,7 +32,11 @@ class NewsController extends \APIController {
 	 */
 	public function store()
 	{
-		//
+		$news = new Slideshow;
+		$news->fill();
+		$news->save();
+
+		return $this->respondOK();
 	}
 
 
@@ -43,7 +48,9 @@ class NewsController extends \APIController {
 	 */
 	public function show($id)
 	{
-		//
+		$album = Album::findOrFail($id);
+
+		return $this->respondOK($album);
 	}
 
 
@@ -67,7 +74,10 @@ class NewsController extends \APIController {
 	 */
 	public function update($id)
 	{
-		//
+		$news = News::findOrFail($id);
+		$news->save();
+
+		return $this->respondOK();
 	}
 
 
@@ -79,7 +89,10 @@ class NewsController extends \APIController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$news = News::findOrFail($id);
+		$news->delete();
+
+		return $this->respondOK();
 	}
 
 

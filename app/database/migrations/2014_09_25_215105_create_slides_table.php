@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSlideshowsTable extends Migration {
+class CreateSlidesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class CreateSlideshowsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('slideshows', function(Blueprint $table)
+		Schema::create('slides', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('user_id');
@@ -30,7 +30,7 @@ class CreateSlideshowsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('slideshows');
+		Schema::dropIfExists('slides');
 	}
 
 }
