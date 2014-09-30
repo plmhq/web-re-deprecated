@@ -10,7 +10,7 @@ class AlbumsController extends \APIController {
 	public function index()
 	{
 		$albums = Album::paginate(10);
-		return $this->respondOK($era);
+		return $this->respondOK($albums);
 	}
 
 
