@@ -21,7 +21,7 @@ Route::group(['prefix' => 'api'], function()
 		Route::resource('news', 'NewsController');
 		Route::resource('slides', 'SlidesController');
 		Route::resource('milestone-eras', 'MilestoneErasController');
-		Route::resource('milestone-eras.milestones', 'MilestonesController');
+		Route::resource('milestones', 'MilestonesController');
 		Route::resource('albums', 'AlbumsController');
 		Route::resource('albums.photos', 'AlbumPhotosController');
 	});
