@@ -2,7 +2,7 @@
 
 use Faker\Factory as Faker;
 
-class DatabaseSeeder extends Seeder {
+class LocalSeeder extends Seeder {
 
 	/**
 	 * Faker
