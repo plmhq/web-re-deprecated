@@ -17,7 +17,8 @@ Route::group(['prefix' => 'api'], function()
 	{
 		Route::resource('users', 'UsersController');
 		Route::resource('events', 'EventsController');
-		Route::resource('news-categories.news', 'NewsController');
+		Route::resource('news-categories', 'NewsCategoriesController');
+		Route::resource('news', 'NewsController');
 		Route::resource('slides', 'SlidesController');
 		Route::resource('milestone-eras', 'MilestoneErasController');
 		Route::resource('milestone-eras.milestones', 'MilestonesController');
