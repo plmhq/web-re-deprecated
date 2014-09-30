@@ -16,7 +16,8 @@ class CreateMilestoneErasTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('name');
-			$table->timestamp('date');
+			$table->timestamp('started_at');
+			$table->timestamp('ended_at');
 			$table->timestamps();
 		});
 	}

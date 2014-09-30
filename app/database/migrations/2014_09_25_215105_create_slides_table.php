@@ -17,6 +17,7 @@ class CreateSlidesTable extends Migration {
 			$table->increments('id');
 			$table->integer('user_id');
 			$table->string('photo');
+			$table->string('caption');
 			$table->boolean('is_pinned');
 			$table->softDeletes();
 			$table->timestamps();

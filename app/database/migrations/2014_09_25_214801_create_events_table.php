@@ -17,10 +17,11 @@ class CreateEventsTable extends Migration {
 			$table->increments('id');
 			$table->integer('user_id');
 			$table->string('title');
-			$table->text('event');
+			$table->text('content');
 			$table->string('photo');
-			$table->boolean('is_done');
+			$table->string('location');
 			$table->timestamp('when');
+			$table->boolean('is_done');
 			$table->softDeletes();
 			$table->timestamps();
 		});

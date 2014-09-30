@@ -19,6 +19,7 @@ class CreateNewsTable extends Migration {
 			$table->integer('category_id');
 			$table->string('title');
 			$table->text('content');
+			$table->string('preview');
 			$table->string('cover');
 			$table->softDeletes();
 			$table->timestamps();
