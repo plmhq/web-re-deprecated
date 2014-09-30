@@ -19,8 +19,8 @@ class CreateEventsTable extends Migration {
 			$table->string('title');
 			$table->text('event');
 			$table->string('photo');
+			$table->boolean('is_done');
 			$table->timestamp('when');
-			$table->bool('is_done');
 			$table->softDeletes();
 			$table->timestamps();
 		});

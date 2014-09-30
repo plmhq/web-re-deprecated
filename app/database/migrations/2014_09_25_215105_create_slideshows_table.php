@@ -17,7 +17,7 @@ class CreateSlideshowsTable extends Migration {
 			$table->increments('id');
 			$table->integer('user_id');
 			$table->string('photo');
-			$table->bool('is_pinned');
+			$table->boolean('is_pinned');
 			$table->softDeletes();
 			$table->timestamps();
 		});
